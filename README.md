@@ -1,0 +1,2 @@
+# InsightHarbor
+![Logo][cover.png]
