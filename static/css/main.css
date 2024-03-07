@@ -3,16 +3,16 @@
 }
 
 .navbar-style, .footer-style{
-    background: linear-gradient(to right, #1f3b99, #4f5491);
+    background: linear-gradient(to right, #2950cb, #6a6ebe);
     font-size: 23px;
-    font-family: "Madimi One", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 
-h1{
-        font-family: "Madimi One", sans-serif;
+h1 {
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
