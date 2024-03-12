@@ -7,8 +7,6 @@ def home(request):
     context = {}
     form = InsightRequest()
 
-
-
     context = {
         'form': form,
     }
