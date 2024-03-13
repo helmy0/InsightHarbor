@@ -2,13 +2,14 @@ import os
 
 from openai import OpenAI
 from dotenv import *
+import json
 import boto3
 
 load_dotenv()
 openAIclient = OpenAI(api_key=os.getenv("OpenAI_API_Key"))
 
 
-def getGPTexplanation():
+def getGPTexplanation(keywords):
     content = ("You are an image model which describes an image based on keywords given to you. You shall take in the "
                "given keywords and geegrate the prompt"
                )
@@ -17,11 +18,11 @@ def getGPTexplanation():
         messages=[
             {"role": "system",
              "content": content},
-            {"role": "user", "content": "mountain beach water sky sand trees coastline seascape landscape nature"}
+            {"role": "user", "content":keywords}
         ]
     )
-
-    return completion.choices[0].message
+    message = completion.choices[0].message
+    return message.content
 
 
 def detect_labels(photo, bucket):
@@ -78,13 +79,34 @@ def detect_labels(photo, bucket):
         print(response["ImageProperties"]["Quality"])
         print()
 
-    return len(response['Labels'])
+    return response
 
 
+def get_label_names(json_string):
+    context = ""
+    # Parse the JSON string into a Python dictionary
+    data = json.loads(json_string)
+
+    # Initialize an empty list to store the label names
+    label_names = []
+
+    for label in data['Labels']:
+        label_names.append(label['Name'])
+
+    for word in label_names:
+        context = context +" "+ word
+    return context
 
 photo = 'test-image-coastline-mountains.jpg'
 bucket = 'insight-harbor'
-label_count = detect_labels(photo, bucket)
-print("Labels detected: " + str(label_count))
+response = detect_labels(photo, bucket)
+json_string = json.dumps(response)
+key_words = get_label_names(json_string)
+print(key_words)
 
-
+print(getGPTexplanation(key_words))
+# Call the function and store the response
+# Open a file in write mode
+with open('output.json', 'w') as json_file:
+    # Write the response to the file
+    json.dump(response, json_file)
