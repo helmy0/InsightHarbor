@@ -8,22 +8,20 @@ import boto3
 load_dotenv()
 openAIclient = OpenAI(api_key=os.getenv("OpenAI_API_Key"))
 
-
 def getGPTexplanation(keywords):
     content = ("You are an image model which describes an image based on keywords given to you. You shall take in the "
-               "given keywords and geegrate the prompt"
+               "given keywords and generate the prompt"
                )
     completion = openAIclient.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system",
              "content": content},
-            {"role": "user", "content":keywords}
+            {"role": "user", "content": keywords}
         ]
     )
-    message = completion.choices[0].message
-    return message.content
-
+    message = completion.choices[0].message.content
+    return message
 
 def detect_labels(photo, bucket):
     session = boto3.Session(profile_name='InsightHarbor',
@@ -32,10 +30,6 @@ def detect_labels(photo, bucket):
 
     response = client.detect_labels(Image={'S3Object': {'Bucket': bucket, 'Name': photo}},
                                     MaxLabels=10,
-                                    # Uncomment to use image properties and filtration settings
-                                    # Features=["GENERAL_LABELS", "IMAGE_PROPERTIES"],
-                                    # Settings={"GeneralLabels": {"LabelInclusionFilters":["Cat"]},
-                                    # "ImageProperties": {"MaxDominantColors":10}}
                                     )
 
     print('Detected labels for ' + photo)
@@ -83,6 +77,7 @@ def detect_labels(photo, bucket):
 
 
 def get_label_names(json_string):
+
     context = ""
     # Parse the JSON string into a Python dictionary
     data = json.loads(json_string)
@@ -94,8 +89,9 @@ def get_label_names(json_string):
         label_names.append(label['Name'])
 
     for word in label_names:
-        context = context +" "+ word
+        context = context + " " + word
     return context
+
 
 photo = 'test-image-coastline-mountains.jpg'
 bucket = 'insight-harbor'
@@ -103,10 +99,4 @@ response = detect_labels(photo, bucket)
 json_string = json.dumps(response)
 key_words = get_label_names(json_string)
 print(key_words)
-
 print(getGPTexplanation(key_words))
-# Call the function and store the response
-# Open a file in write mode
-with open('output.json', 'w') as json_file:
-    # Write the response to the file
-    json.dump(response, json_file)
