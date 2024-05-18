@@ -12,3 +12,10 @@ def home(request):
     }
 
     return render(request, "home.html", context)
+
+
+def result(request):
+    context = {}
+
+
+    return render(request, "result.html", context)

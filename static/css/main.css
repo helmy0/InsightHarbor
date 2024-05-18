@@ -1,13 +1,15 @@
 .bg-gradient {
-    background: linear-gradient(to right, #395ECA, #848BD8);
+    background: linear-gradient(to right, #838eb0, #f0ece5);
 }
 
-.navbar-style, .footer-style{
-    background: linear-gradient(to right, #2950cb, #6a6ebe);
+.navbar-style, .footer-style {
+    background: linear-gradient(to right, #6d7790, #d1cdc6);
     font-size: 23px;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
+    padding: 10px; /* Add some padding for better visual */
+    color: black; /* Adjust text color as needed */
 }
 
 

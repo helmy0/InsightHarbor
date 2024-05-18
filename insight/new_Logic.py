@@ -25,19 +25,42 @@ class OpenAIClient:
         return message
 
 class ImageAnalyzer:
+    """
+    A class that analyzes images using Amazon Rekognition.
+
+  
+
+    """
+
     def __init__(self, bucket, profile_name='InsightHarbor'):
+        """
+        Initializes a new instance of the ImageAnalyzer class.
+
+        Args:
+            bucket (str): The name of the S3 bucket where the images are stored.
+            profile_name (str): The name of the AWS profile to use for authentication.
+                Defaults to 'InsightHarbor'.
+
+        """
         self.session = boto3.Session(profile_name=profile_name)
         self.client = self.session.client('rekognition')
         self.bucket = bucket
 
     def detect_labels(self, photo):
+        """
+        Detects labels in an image using Amazon Rekognition.
+
+        """
         response = self.client.detect_labels(Image={'S3Object': {'Bucket': self.bucket, 'Name': photo}},
-                                             MaxLabels=10,
-                                             )
+                                             MaxLabels=10)
         return response
 
     @staticmethod
     def get_label_names(json_string):
+        """
+        Extracts label names from a JSON string.
+
+        """
         context = ""
         data = json.loads(json_string)
         label_names = []
