@@ -4,9 +4,11 @@ from openai import OpenAI
 from dotenv import *
 import json
 import boto3
+from dotenv import load_dotenv
 
 load_dotenv()
 openAIclient = OpenAI(api_key=os.getenv("OpenAI_API_Key"))
+
 
 def getGPTexplanation(keywords):
     content = ("You are an image model which describes an image based on keywords given to you. You shall take in the "
@@ -22,6 +24,7 @@ def getGPTexplanation(keywords):
     )
     message = completion.choices[0].message.content
     return message
+
 
 def detect_labels(photo, bucket):
     session = boto3.Session(profile_name='InsightHarbor',
@@ -77,7 +80,6 @@ def detect_labels(photo, bucket):
 
 
 def get_label_names(json_string):
-
     context = ""
     # Parse the JSON string into a Python dictionary
     data = json.loads(json_string)
