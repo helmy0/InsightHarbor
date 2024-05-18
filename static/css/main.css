@@ -1,27 +1,45 @@
 .bg-gradient {
-    background: linear-gradient(to right, #838eb0, #f0ece5);
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(220, 70, 252, 1) 100%);
+    animation: gradientAnimation 5s infinite alternate;
 }
 
 .navbar-style, .footer-style {
-    background: linear-gradient(to right, #6d7790, #d1cdc6);
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgb(69, 90, 217) 0%, rgb(200, 89, 224) 100%);
     font-size: 23px;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 10px; /* Add some padding for better visual */
-    color: black; /* Adjust text color as needed */
+    padding: 10px;
+    color: black;
+    animation: gradientAnimation 5s infinite alternate;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 
 h1 {
-    font-family: "Roboto", sans-serif;
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+p{
+    font-family: "Shrikhand", serif;
     font-weight: 400;
     font-style: normal;
 }
 
-
 .logo-nav{
     width: 70%;
+    padding: 5%;
 }
 
 
@@ -30,15 +48,96 @@ h1 {
 
 
 }
-.footer-style{
+/* CSS for .footer-style class */
+.footer-style {
     border-top: 0.75px solid black;
     padding: 12px;
+}
+
+/* CSS for footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: black;
+    text-align: center;
+    padding: 12px;
+}
+
+
+
+
 }
 
 .fab{
     color: black;
 }
 
+/*
+Main page styling
 
-h1{
+*/
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.centered-content h1 {
+    margin-bottom: 10px;
+}
+
+.centered-content p {
+    margin-bottom: 20px;
+}
+
+.upload-container {
+    position: relative;
+    display: inline-block;
+}
+
+#imageUpload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-label:hover {
+    background-color: #0056b3;
+}
+
+.upload-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #218838;
 }
