@@ -4,15 +4,16 @@ import boto3
 from openai import OpenAI
 from dotenv import load_dotenv
 
+
 class OpenAIClient:
     def __init__(self, api_key):
-
         self.client = OpenAI(api_key=api_key)
 
     def get_gpt_explanation(self, keywords):
-        content = ("You are an image model which describes an image based on keywords given to you. You shall take in the "
-                   "given keywords and generate the prompt"
-                   )
+        content = (
+            "You are an image model which describes an image based on keywords given to you. You shall take in the "
+            "given keywords and generate the prompt"
+            )
         completion = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
@@ -24,17 +25,16 @@ class OpenAIClient:
         message = completion.choices[0].message.content
         return message
 
-class ImageAnalyzer:
+
+class AWSImageAnalyzer:
     """
     A class that analyzes images using Amazon Rekognition.
 
-  
-
     """
 
-    def __init__(self, bucket, profile_name='InsightHarbor'):
+    def __init__(self, bucket='insight-harbor', profile_name='InsightHarbor'):
         """
-        Initializes a new instance of the ImageAnalyzer class.
+        Initializes a new instance of the AWSImageAnalyzer class.
 
         Args:
             bucket (str): The name of the S3 bucket where the images are stored.
@@ -70,13 +70,21 @@ class ImageAnalyzer:
             context = context + " " + word
         return context
 
-load_dotenv()
-openai_client = OpenAIClient(api_key=os.getenv("OpenAI_API_Key"))
-image_analyzer = ImageAnalyzer(bucket='insight-harbor')
 
-photo = 'test-image-coastline-mountains.jpg'
-response = image_analyzer.detect_labels(photo)
-json_string = json.dumps(response)
-key_words = ImageAnalyzer.get_label_names(json_string)
-print(key_words)
-print(openai_client.get_gpt_explanation(key_words))
+
+
+def __main__():
+    load_dotenv()
+    openai_client = OpenAIClient(api_key=os.getenv("OpenAI_API_Key"))
+
+    image_analyzer = AWSImageAnalyzer()
+
+    photo = 'test-image-coastline-mountains.jpg'
+
+    labelResponse = image_analyzer.detect_labels(photo)
+
+    json_string = json.dumps(labelResponse)
+
+    key_words = AWSImageAnalyzer.get_label_names(json_string)
+    print(key_words)
+    print(openai_client.get_gpt_explanation(key_words))

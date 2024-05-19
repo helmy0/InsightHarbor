@@ -10,7 +10,7 @@ class InsightRequest(forms.ModelForm):
 
         model = UserImageCase
 
-        fields = ['image']
+        fields = ['image', 'resultPrompt']
 
 
 

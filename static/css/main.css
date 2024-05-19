@@ -1,19 +1,29 @@
 .bg-gradient {
+    /*
+
     background: rgb(63, 94, 251);
     background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(220, 70, 252, 1) 100%);
-    animation: gradientAnimation 5s infinite alternate;
+    */
+
+background: #654DE9;
+background: radial-gradient(at right bottom, #654DE9, #E6DCC8);
+
 }
 
 .navbar-style, .footer-style {
+    /*
     background: rgb(63, 94, 251);
-    background: radial-gradient(circle, rgb(69, 90, 217) 0%, rgb(200, 89, 224) 100%);
+      background: black radial-gradient(circle, rgb(69, 90, 217) 0%, rgb(200, 89, 224) 100%);
+
+    */
+
+
     font-size: 23px;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
     padding: 10px;
     color: black;
-    animation: gradientAnimation 5s infinite alternate;
 }
 
 @keyframes gradientAnimation {
@@ -52,6 +62,7 @@ p{
 .footer-style {
     border-top: 0.75px solid black;
     padding: 12px;
+
 }
 
 /* CSS for footer */
@@ -59,7 +70,6 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #333;
     color: black;
     text-align: center;
     padding: 12px;
