@@ -10,4 +10,4 @@ COPY . .
 
 RUN python3 manage.py collectstatic --no-input
 
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000", "--noreload"]
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000", "--noreload", "--insecure"]
