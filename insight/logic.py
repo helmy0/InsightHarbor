@@ -42,7 +42,13 @@ class AWSImageAnalyzer:
                 Defaults to 'InsightHarbor'.
 
         """
-        self.session = boto3.Session(profile_name=profile_name)
+        aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
+        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
+        aws_region = os.getenv('AWS_REGION')
+
+        self.session = boto3.Session(aws_access_key_id=aws_access_key_id,
+                                     aws_secret_access_key=aws_secret_access_key,
+                                     region_name=aws_region)
         self.client = self.session.client('rekognition')
         self.bucket = bucket
 
