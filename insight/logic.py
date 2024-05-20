@@ -70,7 +70,18 @@ class AWSImageAnalyzer:
             context = context + " " + word
         return context
 
+def analyze_image_and_generate_description(filename):
+    image_analyzer = AWSImageAnalyzer()
 
+    label_response = image_analyzer.detect_labels(filename)
+    json_string = json.dumps(label_response)
+
+    keywords = AWSImageAnalyzer.get_label_names(json_string)
+
+    openai_client = OpenAIClient(api_key=os.getenv("OpenAI_API_Key"))
+    description = openai_client.get_gpt_explanation(keywords)
+
+    return description, keywords
 
 
 def __main__():

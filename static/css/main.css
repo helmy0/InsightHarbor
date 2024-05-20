@@ -5,11 +5,30 @@
     background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(220, 70, 252, 1) 100%);
     */
 
-background: #654DE9;
-background: radial-gradient(at right bottom, #654DE9, #E6DCC8);
 
 }
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background: radial-gradient(at right bottom, #654DE9, #E6DCC8);
 
+    : fixed;
+}
+
+body{
+margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-attachment: fixed;
+    flex: 1 0 auto;
+    overflow: auto;
+}
 .navbar-style, .footer-style {
     /*
     background: rgb(63, 94, 251);
@@ -60,24 +79,26 @@ p{
 }
 /* CSS for .footer-style class */
 .footer-style {
-    border-top: 0.75px solid black;
     padding: 12px;
 
 }
 
 /* CSS for footer */
 footer {
-    position: absolute;
-    bottom: 0;
+    flex-shrink: 0;  /* This will prevent the footer from shrinking */
     width: 100%;
     color: black;
     text-align: center;
     padding: 12px;
 }
 
+a i {
+    color: black;
+}
 
-
-
+.footer a i {
+    color: black;
+}
 }
 
 .fab{
@@ -150,4 +171,56 @@ Main page styling
 
 .upload-button:hover {
     background-color: #218838;
+}
+
+
+/*Result*/
+
+ .container {
+            padding: 20px 0; /* Adjust padding as needed */
+        }
+
+        /* Styles for the image */
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 25%;
+
+            height: 30%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title and description styles */
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .labels, .description {
+            margin-bottom: 20px;
+        }
+
+        .labels h2, .description h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .labels p, .description p {
+            color: black;
+            font-family: "Poetsen One", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        .poetsen-one-regular {
+          font-family: "Poetsen One", sans-serif;
+          font-weight: 400;
+          font-style: normal;
 }

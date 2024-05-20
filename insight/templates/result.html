@@ -2,15 +2,24 @@
 {% load static %}
 
 {% block content %}
-
-{% include "navbar.html" %}
-
-<div class="centered-content">
-    <h1>Your image</h1>
-    <p>????? IMAGE ??????</p>
-
-</div>
+    {% include "navbar.html" %}
 
 
+    <div class="container">
+        <div class="image-container">
+            <img src="{{ filename }}" alt="Uploaded Image">
+        </div>
+        <div class="content">
+            <h2 class="title">Image Analysis Result</h2>
+            <div class="labels">
+                <h2>Labels:</h2>
+                <p>{{ labels }}</p>
+            </div>
+            <div class="description">
+                <h2>Description:</h2>
+                <p>{{ description }}</p>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
