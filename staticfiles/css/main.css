@@ -1,0 +1,226 @@
+.bg-gradient {
+    /*
+
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(220, 70, 252, 1) 100%);
+    */
+
+
+}
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background: radial-gradient(at right bottom, #654DE9, #E6DCC8);
+
+    : fixed;
+}
+
+body{
+margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-attachment: fixed;
+    flex: 1 0 auto;
+    overflow: auto;
+}
+.navbar-style, .footer-style {
+    /*
+    background: rgb(63, 94, 251);
+      background: black radial-gradient(circle, rgb(69, 90, 217) 0%, rgb(200, 89, 224) 100%);
+
+    */
+
+
+    font-size: 23px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px;
+    color: black;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+h1 {
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+p{
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logo-nav{
+    width: 70%;
+    padding: 5%;
+}
+
+
+.navbar-style{
+    border-bottom: 0.75px solid black;
+
+
+}
+/* CSS for .footer-style class */
+.footer-style {
+    padding: 12px;
+
+}
+
+/* CSS for footer */
+footer {
+    flex-shrink: 0;  /* This will prevent the footer from shrinking */
+    width: 100%;
+    color: black;
+    text-align: center;
+    padding: 12px;
+}
+
+a i {
+    color: black;
+}
+
+.footer a i {
+    color: black;
+}
+}
+
+.fab{
+    color: black;
+}
+
+/*
+Main page styling
+
+*/
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.centered-content h1 {
+    margin-bottom: 10px;
+}
+
+.centered-content p {
+    margin-bottom: 20px;
+}
+
+.upload-container {
+    position: relative;
+    display: inline-block;
+}
+
+#imageUpload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-label:hover {
+    background-color: #0056b3;
+}
+
+.upload-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #218838;
+}
+
+
+/*Result*/
+
+ .container {
+            padding: 20px 0; /* Adjust padding as needed */
+        }
+
+        /* Styles for the image */
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 25%;
+
+            height: 30%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title and description styles */
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .labels, .description {
+            margin-bottom: 20px;
+        }
+
+        .labels h2, .description h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .labels p, .description p {
+            color: black;
+            font-family: "Poetsen One", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        .poetsen-one-regular {
+          font-family: "Poetsen One", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+}
