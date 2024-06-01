@@ -1,4 +1,5 @@
 import json
+import time
 
 from django.shortcuts import render, redirect
 from .logic import AWSImageAnalyzer, OpenAIClient, analyze_image_and_generate_description
@@ -62,19 +63,15 @@ def result(request, filename):
         'description': description,
         'labels': keywords,
     }
+
+
+    delayed_delete_s3_object('insight-harbor', filename, delay=90)
+
+
     return render(request, "result.html", context)
 
 
 def generate_presigned_url(bucket_name, object_name, expiration=3600):
-    """
-    Generate a presigned URL to share an S3 object
-
-    :param bucket_name: string
-    :param object_name: string
-    :param expiration: Time in seconds for the presigned URL to remain valid
-    :return: Presigned URL as string. If error, returns None.
-    """
-
     # Generate a presigned URL for the S3 object
     s3_client = boto3.client('s3')
     try:
@@ -87,3 +84,23 @@ def generate_presigned_url(bucket_name, object_name, expiration=3600):
         return None
     # The response contains the presigned URL
     return response
+
+import threading
+
+def delayed_delete_s3_object(bucket_name, object_name, delay):
+
+
+    # Initialize the S3 client
+    s3_client = boto3.client('s3')
+
+    def delete_object():
+        time.sleep(delay)
+        try:
+            # Delete the object
+            s3_client.delete_object(Bucket=bucket_name, Key=object_name)
+            print(f"Successfully deleted object {object_name} from bucket {bucket_name}")
+        except Exception as e:
+            print(f"Failed to delete object {object_name} from bucket {bucket_name}. Exception: {e}")
+
+    # Start a new thread that will delete the object after the delay
+    threading.Thread(target=delete_object).start()
