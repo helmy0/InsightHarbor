@@ -8,3 +8,4 @@ static/admin
 insight/__pycache__/
 !/staticfiles/admin/
 !/staticfiles/rest_framework/
+!/InsightHarbor/__pycache__/
