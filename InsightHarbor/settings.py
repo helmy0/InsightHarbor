@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [
     "insightharbor.onrender.com",
     "127.0.0.1:8000",
     "127.0.0.1",
+    "0.0.0.0",
 ]
 
 

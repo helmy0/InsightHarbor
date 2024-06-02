@@ -10,4 +10,4 @@ COPY . .
 
 RUN python3 manage.py collectstatic --no-input
 
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8080"]
+CMD ["gunicorn", "InsightHarbor.wsgi:application", "--bind", "0.0.0.0:8000"]
