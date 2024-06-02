@@ -34,13 +34,7 @@ class AWSImageAnalyzer:
 
     def __init__(self, bucket='insight-harbor', profile_name='InsightHarbor'):
         """
-        Initializes a new instance of the AWSImageAnalyzer class.
-
-        Args:
-            bucket (str): The name of the S3 bucket where the images are stored.
-            profile_name (str): The name of the AWS profile to use for authentication.
-                Defaults to 'InsightHarbor'.
-
+        Init the s3 session
         """
         aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
         aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
