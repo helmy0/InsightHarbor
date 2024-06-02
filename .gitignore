@@ -2,4 +2,5 @@
 lib/
 static/rest_framework/
 __pycache__/
+static/admin
 insight/__pycache_/
