@@ -3,3 +3,5 @@ lib/
 static/rest_framework/
 __pycache__/
 static/admin
+!/static/rest_framework/
+!/static/admin/
