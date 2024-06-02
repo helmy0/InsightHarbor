@@ -2,3 +2,4 @@
 lib/
 static/rest_framework/
 __pycache__/
+insight/__pycache_/
