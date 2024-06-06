@@ -4,9 +4,7 @@ static/rest_framework/
 __pycache__/
 static/admin
 insight/__pycache_/
-!/static/rest_framework/
-!/static/admin/
+staticfiles/rest_framework/
+staticfiles/admin/
 insight/__pycache__/
-!/staticfiles/admin/
-!/staticfiles/rest_framework/
-!/InsightHarbor/__pycache__/
+/InsightHarbor/__pycache__/
