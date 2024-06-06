@@ -2,3 +2,9 @@
 lib/
 static/rest_framework/
 __pycache__/
+static/admin
+insight/__pycache_/
+staticfiles/rest_framework/
+staticfiles/admin/
+insight/__pycache__/
+!/InsightHarbor/__pycache__/
