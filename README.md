@@ -15,4 +15,16 @@ docker build -t insightharbor . # in work dir
 docker run -p 8000:8000 insightharbor # access the application locally on port 8000 
 ```
 
->System architecture 
+
+
+>System architecture
+
+
+
+![System_Architecture drawio](https://github.com/helmy0/InsightHarbor/assets/74600255/b7b58057-c77c-47e1-88e5-79d2f942b126)
+
+
+
+
+
+
